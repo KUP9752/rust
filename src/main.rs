@@ -1,6 +1,11 @@
 #![allow(non_snake_case)]
+
+#[allow(dead_code)]
 mod hello;
 
+mod format;
+
 fn main() {
-  hello::helloWorld();
+  // hello::helloWorld();
+  format::main()
 }

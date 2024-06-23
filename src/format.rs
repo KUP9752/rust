@@ -149,6 +149,7 @@ pub fn display() {
   );
 }
 
+#[allow(dead_code)]
 pub fn list() {
   struct List(Vec<i32>);
 
@@ -189,4 +190,41 @@ pub fn list() {
 
   let v = List(vec![1, 2, 3]);
   println!("{}", v);
+}
+
+pub fn colour() {
+  struct Colour {
+    red: u8,
+    green: u8,
+    blue: u8,
+  }
+
+  impl fmt::Display for Colour {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+      write!(
+        f,
+        "RGB ({}, {}, {}) Hex: {:02X} {:02X} {:02X}",
+        self.red, self.green, self.blue, self.red, self.green, self.blue
+      )
+    }
+  }
+  for color in [
+    Colour {
+      red: 128,
+      green: 255,
+      blue: 90,
+    },
+    Colour {
+      red: 0,
+      green: 3,
+      blue: 254,
+    },
+    Colour {
+      red: 0,
+      green: 0,
+      blue: 0,
+    },
+  ] {
+    println!("{}", color);
+  }
 }

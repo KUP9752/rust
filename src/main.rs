@@ -9,5 +9,6 @@ fn main() {
   // hello::helloWorld();
   // format::main()
   // format::display()
-  format::list()
+  // format::list()
+  format::colour()
 }

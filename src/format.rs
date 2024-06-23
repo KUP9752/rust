@@ -46,7 +46,11 @@ pub fn main() {
   // This will not compile because `Structure` does not implement
   // fmt::Display.
   println!("This struct `{:}` won't print...", Structure(3));
+
+  // this is for just debug printing
   println!("This struct `{:?}` won't print...", Structure(3));
+  // this is for pretty debug printing
+  println!("This struct `{:#?}` won't print...", Structure(3));
 
   // For Rust 1.58 and above, you can directly capture the argument from a
   // surrounding variable. Just like the above, this will output

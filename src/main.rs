@@ -7,5 +7,6 @@ mod format;
 
 fn main() {
   // hello::helloWorld();
-  format::main()
+  // format::main()
+  format::display()
 }

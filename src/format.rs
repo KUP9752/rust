@@ -65,6 +65,7 @@ pub fn main() {
   println!("Pi is roughly {:.3}", pi); // 3.142
 }
 
+#[allow(dead_code)]
 pub fn display() {
   use std::fmt; // Import `fmt`
 
@@ -146,4 +147,46 @@ pub fn display() {
       imag: 5.4
     }
   );
+}
+
+pub fn list() {
+  struct List(Vec<i32>);
+
+  // impl fmt::Display for List {
+  //   fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+  //     let nums = &self.0;
+
+  //     write!(f, "[")?;
+
+  //     // pythonesque the enumerate returns a tuple of (index, item)
+  //     for (index, item) in nums.iter().enumerate() {
+  //       if index != 0 {
+  //         write!(f, ", ")?;
+  //       }
+  //       write!(f, "{}", item)?;
+  //     }
+
+  //     write!(f, "]")
+  //   }
+  // }
+
+  impl fmt::Display for List {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+      let nums = &self.0;
+
+      write!(f, "[")?;
+
+      for (index, item) in nums.iter().enumerate() {
+        if index != 0 {
+          write!(f, ", ")?;
+        }
+        write!(f, "{}: {}", index, item)?;
+      }
+
+      write!(f, "]")
+    }
+  }
+
+  let v = List(vec![1, 2, 3]);
+  println!("{}", v);
 }
